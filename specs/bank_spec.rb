@@ -27,7 +27,9 @@ describe 'Bank class' do
     # verify
     expect(bank.balance).to eq 500
   end
+end
 
+describe 'creating a statement' do
   it 'shows statement' do
     # set up
     bank = Bank.new
@@ -41,7 +43,8 @@ describe 'Bank class' do
     # execute
     bank.deposit(1000, "10/01/2012")
     # verify
-    expect(bank.statement).to eq "date || credit || debit || balance\n10/01/2012 || 1000.00 || || 1000.00"
+    expect(bank.statement).to eq "date || credit || debit || balance\
+\n10/01/2012 || 1000.00 || || 1000.00"
   end
 
   it 'shows statement for one deposit and one withdrawal in order of most recent transaction' do
@@ -55,7 +58,9 @@ describe 'Bank class' do
 \n13/01/2012 || || 500.00 || 500.00\
 \n10/01/2012 || 1000.00 || || 1000.00"
   end
+end
 
+describe 'Full statement' do
   it 'shows a full statement' do
     # set up
     bank = Bank.new
@@ -69,5 +74,4 @@ describe 'Bank class' do
 \n13/01/2012 || 2000.00 || || 3000.00\
 \n10/01/2012 || 1000.00 || || 1000.00"
   end
-
 end
