@@ -23,7 +23,8 @@ Objects | Messages<br/>
 1. Bank | deposit(amount, date)
 2. Bank | withdraw(amount, date)
 3. Bank | balance
-4. Bank | statement
+4. Statement | update(string of transaction)
+4. Statement | display: outputs transactions in order)
 
 TDD
 

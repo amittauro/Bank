@@ -1,24 +1,18 @@
 class Bank
   attr_reader :balance
 
-  def initialize
+  def initialize(statement)
     @balance = 0
-    @statement = []
+    @statement = statement
   end
 
   def deposit(amount, date)
     @balance += amount
-    @statement.push("#{date} || #{amount}.00 || || #{@balance}.00")
+    @statement.update("#{date} || #{amount}.00 || || #{@balance}.00")
   end
 
   def withdraw(amount, date)
     @balance -= amount
-    @statement.push("#{date} || || #{amount}.00 || #{@balance}.00")
-  end
-
-  def statement
-    @statement.reverse!
-    @statement.insert(0, "date || credit || debit || balance")
-    @statement.join("\n")
+    @statement.update("#{date} || || #{amount}.00 || #{@balance}.00")
   end
 end
