@@ -1,18 +1,22 @@
+require 'date'
+
 class Bank
-  attr_reader :balance
+  attr_reader :transactions
 
-  def initialize(statement)
+  def initialize
     @balance = 0
-    @statement = statement
+    @transactions = []
   end
 
-  def deposit(amount, date)
-    @balance += amount
-    @statement.update("#{date} || #{amount}.00 || || #{@balance}.00")
+  def deposit(transaction)
+    @transactions.push({ date: transaction.date,
+      amount: transaction.amount, type: 'deposit' })
+    @balance += transaction.amount
   end
 
-  def withdraw(amount, date)
-    @balance -= amount
-    @statement.update("#{date} || || #{amount}.00 || #{@balance}.00")
+  def withdraw(transaction)
+    @transactions.push({ date: transaction.date,
+      amount: transaction.amount, type: 'withdraw' })
+    @balance -= transaction.amount
   end
 end

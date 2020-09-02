@@ -36,3 +36,8 @@ TDD
 6. shows statement for one withdrawal
 7. shows statement for deposit and withdrawal
 8. shows full statement
+
+update
+
+use time class (gem time cop)
+puts for output
